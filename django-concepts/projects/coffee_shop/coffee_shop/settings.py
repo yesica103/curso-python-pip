@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_tailwind',
     'products',
     'users',
+    'orders',
 
 ]
 
@@ -108,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
@@ -129,4 +130,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 
 CRISPY_TEMPLATE_PACK = "tailwind"
+LOGIN_REDIRECT_URL = "list_product"
+
+LOGOUT_REDIRECT_URL = "list_product"
 LOGIN_REDIRECT_URL = "list_product"
