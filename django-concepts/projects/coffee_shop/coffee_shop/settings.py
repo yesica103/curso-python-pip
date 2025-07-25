@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_tailwind',
+    'rest_framework',
     'products',
     'users',
     'orders',
@@ -81,8 +82,13 @@ WSGI_APPLICATION = 'coffee_shop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'HOST': 'db-curso-django.c5u46sem6bkw.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
+        'USER': 'db_username',
+        'PASSWORD': 'db-password',
+
     }
 }
 
@@ -135,3 +141,11 @@ LOGIN_REDIRECT_URL = "list_product"
 LOGOUT_REDIRECT_URL = "list_product"
 LOGIN_REDIRECT_URL = "list_product"
 LOGIN_URL = "login"
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
